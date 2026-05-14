@@ -4,10 +4,17 @@
 generator client {
   provider = "prisma-client-js"
 }
+// ❌ Local Database (Commented out)
+// datasource db {
+//   provider = "sqlite"
+//   url      = "file:./dev.db"
+// }
 
+// ✅ Remote Database (Supabase)
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")   // Transaction pooler (port 6543)
+  directUrl = env("DIRECT_URL")     // Session pooler (port 5432)
 }
 
 model Category {
