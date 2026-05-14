@@ -1,4 +1,5 @@
 import Link from "next/link";
+export const dynamic = 'force-dynamic';
 
 export default function AdminLayout({
   children,
@@ -48,14 +49,14 @@ export default function AdminLayout({
             <Link href="/" className="text-sm font-medium text-primary hover:text-primary-hover">Exit</Link>
           </div>
           <div className="overflow-x-auto py-2 px-4 flex space-x-4">
-             {navItems.map(item => (
-                <Link key={item.name} href={item.href} className="text-sm font-medium text-gray-700 hover:text-primary whitespace-nowrap">
-                   {item.name}
-                </Link>
-             ))}
+            {navItems.map(item => (
+              <Link key={item.name} href={item.href} className="text-sm font-medium text-gray-700 hover:text-primary whitespace-nowrap">
+                {item.name}
+              </Link>
+            ))}
           </div>
         </header>
-        
+
         <main className="flex-1 overflow-y-auto w-full p-4 sm:p-6 lg:p-8">
           {children}
         </main>
