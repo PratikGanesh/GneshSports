@@ -9,7 +9,10 @@ export default defineConfig({
     path: "prisma/migrations",
   },
   datasource: {
-    // CHANGE THIS from DATABASE_URL to DIRECT_URL
-    url: env("DIRECT_URL"),
+    // 1. For the App (Pooled - Port 6543)
+    url: env("DATABASE_URL"),
+
+    // 2. For the Build/CLI (Direct - Port 5432)
+    directUrl: env("DIRECT_URL"),
   },
 });
